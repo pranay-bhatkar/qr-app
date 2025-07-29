@@ -8,7 +8,7 @@ export default function QrGenerator() {
 
   // Replace with your actual deployed domain later
   const qrValue = text
-    ? `http://localhost:3000/show?text=${encodeURIComponent(text)}`
+    ? `https://qr-app-1.vercel.app/show?text=${encodeURIComponent(text)}`
     : "";
 
   const handleDownload = () => {
