@@ -1,12 +1,9 @@
-import { Suspense } from "react";
-import ShowQRReader from "./ShowQRReader";
+"use client";
+import { useSearchParams } from "next/navigation";
 
-export default function ShowPage() {
-  return (
-    <main className="p-4">
-      <Suspense fallback={<div>Loading...</div>}>
-        <ShowQRReader />
-      </Suspense>
-    </main>
-  );
+export default function ShowQRReader() {
+  const params = useSearchParams();
+  const data = params.get("data");
+
+  return <div>Scanned QR data: {data}</div>;
 }
