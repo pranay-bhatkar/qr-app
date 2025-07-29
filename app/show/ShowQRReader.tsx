@@ -5,5 +5,5 @@ export default function ShowQRReader() {
   const params = useSearchParams();
   const data = params.get("data");
 
-  return <div>Scanned QR data: {data}</div>;
+  return <div className="text-2xl text-white bg-red-100 ">Scanned QR data: {data}</div>;
 }
