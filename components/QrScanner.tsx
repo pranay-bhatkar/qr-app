@@ -6,23 +6,26 @@ export default function QrScanner() {
   const [scannedText, setScannedText] = useState("");
 
   useEffect(() => {
-    const scanner = new Html5QrcodeScanner("reader", {
-      fps: 10,
-      qrbox: 250,
-    });
+    const scanner = new Html5QrcodeScanner(
+      "reader",
+      { fps: 10, qrbox: 250 },
+      false // <- third argument
+    );
 
     scanner.render(
-      (decodedText) => {
+      (decodedText, decodedResult) => {
+        console.log("Decoded:", decodedText);
         setScannedText(decodedText);
-        scanner.clear();
       },
       (error) => {
-        console.log(error);
+        console.warn("QR Code scan error:", error);
       }
     );
 
     return () => {
-      scanner.clear().catch(console.error);
+      scanner.clear().catch((error) => {
+        console.error("Failed to clear scanner", error);
+      });
     };
   }, []);
 
