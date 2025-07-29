@@ -30,7 +30,7 @@ export default function QrScanner() {
           });
         },
         (error) => {
-          // Optional: console.warn("Scan error", error);
+          Optional: console.warn("Scan error", error);
         }
       );
 
@@ -64,6 +64,15 @@ export default function QrScanner() {
     setTimeout(() => {
       startScanner();
     }, 100); // Slight delay to ensure clear
+  };
+
+  const isValidUrl = (text: string) => {
+    try {
+      const url = new URL(text);
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch (_) {
+      return false;
+    }
   };
 
   return (
@@ -120,6 +129,17 @@ export default function QrScanner() {
             >
               Scan Another
             </button>
+
+            {isValidUrl(scannedText) && (
+              <a
+                href={scannedText}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-center w-full bg-green-600 text-white font-semibold py-2 rounded hover:bg-green-700 transition"
+              >
+                Visit Link
+              </a>
+            )}
           </>
         )}
       </motion.div>
