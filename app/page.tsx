@@ -15,7 +15,7 @@ export default function Home() {
       </div>
 
       <footer className="mt-10 text-sm text-gray-500">
-        Made with ❤️ by <a href="https://yourportfolio.com" className="text-blue-500 hover:underline">Your Name</a>
+        Made with ❤️ by <a href="https://yourportfolio.com" className="text-blue-500 hover:underline">Pranay Bhatkar</a>
       </footer>
     </main>
   );
