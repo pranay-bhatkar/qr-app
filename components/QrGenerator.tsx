@@ -9,7 +9,7 @@ export default function QrGenerator() {
   // Replace with your actual deployed domain later
   const qrValue = text
     ? `https://qr-app-1.vercel.app/show?text=${encodeURIComponent(text)}`
-    : "";
+    : "default value";
 
   const handleDownload = () => {
     const svg = qrRef.current?.querySelector("svg");
